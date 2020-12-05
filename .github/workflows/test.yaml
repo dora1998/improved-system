@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        node: ["6", "8", "12", "13"]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Installing node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: node index.js
+      - name: Test on UNIX-based system
+        if: matrix.os != 'windows-latest'
+        run: TZ=Asia/Tokyo node index.js
+      - name: Test on Windows system
+        if: matrix.os == 'windows-latest'
+        run: set TZ=Asia/Tokyo && node index.js
