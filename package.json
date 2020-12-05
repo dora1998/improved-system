@@ -1,0 +1,8 @@
+{
+  "name": "process-env-tz-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dora1998/process-env-tz-test.git",
+  "author": "dora <31735614+dora1998@users.noreply.github.com>",
+  "license": "MIT"
+}
