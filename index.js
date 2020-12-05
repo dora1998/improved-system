@@ -11,6 +11,8 @@ console.log(date.toString());
 
 // 3. 動的にタイムゾーンを変更する（ここではシンガポール標準時）
 process.env.TZ = "Asia/Singapore";
+// 日時関連のキャッシュを消す
+require('reset-date-cache')();
 
 // 変更後の設定値を確認
 console.log(`process.env.TZ = ${process.env.TZ}`);
